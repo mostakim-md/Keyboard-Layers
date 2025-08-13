@@ -21,15 +21,15 @@ F24 & SC00D:: Send '{Blind}{F12}'
 
 ; top row
 F24 & SC010:: Send '{Esc}'
-F24 & SC011:: MouseClick "X1"
+F24 & SC011:: MouseClick "left"
 F24 & SC012:: Send '^f' ; "find"
-F24 & SC013:: MouseClick "X2"
+F24 & SC013:: MouseClick "right"
 F24 & SC014:: Send '{Insert}'
-F24 & SC015:: Return
-F24 & SC016:: Send '{Blind}{PgUp}'
-F24 & SC017:: Send '{Blind}{Home}'
-F24 & SC018:: Send '{Blind}{Up}'
-F24 & SC019:: Send '{Blind}{End}'
+F24 & SC015:: Send '{Blind}{PgUp}'
+F24 & SC016:: Send '{Blind}{Home}'
+F24 & SC017:: Send '{Blind}{Up}'
+F24 & SC018:: Send '{Blind}{End}'
+F24 & SC019:: Return
 
 F24 & SC01A:: {
     if GetKeyState('CapsLock', 'T')
@@ -51,12 +51,12 @@ F24 & SC021:: Send '{Blind}{CtrlDown}'
 F24 & SC021 Up:: Send '{CtrlUp}'
 F24 & SC022:: Send '{Blind}{RAltDown}'
 F24 & SC022 Up:: Send '{RAltUp}'
-F24 & SC023:: Return
-F24 & SC024:: Send '{Blind}{PgDn}'
-F24 & SC025:: Send '{Blind}{Left}'
-F24 & SC026:: Send '{Blind}{Down}'
-F24 & SC027:: Send '{Blind}{Right}'
-F24 & SC028:: Send '{Blind}{Del}'
+F24 & SC023:: Send '{Blind}{PgDn}'
+F24 & SC024:: Send '{Blind}{Left}'
+F24 & SC025:: Send '{Blind}{Down}'
+F24 & SC026:: Send '{Blind}{Right}'
+F24 & SC027:: Send '{Blind}{Del}'
+F24 & SC028:: Return
 
 ; bottom row
 F24 & SC056:: Send '^z'
@@ -64,9 +64,16 @@ F24 & SC02C:: Send '^x'
 F24 & SC02D:: Send '^c'
 F24 & SC02E:: Send '^c'
 F24 & SC02F:: Send '^v'
-F24 & SC030:: Return
-F24 & SC031:: Send '{Return}'
-F24 & SC032:: Send '{Blind}{PrintScreen}'
+F24 & SC030:: Send '{WheelDown}'
+F24 & SC031:: Send '{WheelUp}'
+F24 & SC032:: Send '{Blind}{Media_Play_Pause}'
 F24 & SC033:: Send '{Blind}{Backspace}'
 F24 & SC034:: Send '{Blind}{Tab}'
 F24 & SC035:: Send '{AppsKey}'
+F24 & Space:: Send '{Blind}{Media_Play_Pause}'
+
+; mouse movement
+F24  & SC09:: MouseMove -50, 0, , "R"
+F24  & SC0A:: MouseMove 0, 50, , "R"
+F24  & SC0B:: MouseMove 0, -50, , "R"
+F24  & SC0C:: MouseMove 30, 0, , "R"
