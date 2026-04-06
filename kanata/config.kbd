@@ -1,0 +1,81 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11   f12    prnt    pause  del
+  grv     1      2      3      4      5      6      7      8      9      0      -     =      bspc           home
+  tab     q      w      e      r      t      y      u      i      o      p      [     ]        \            end
+  caps    a      s      d      f      g      h      j      k      l      ;      '      ret                  pgup 
+  lsft    z      x      c      v      b      n      m      ,      .      /           rsft         up        pgdn 
+  lctl   lmet  lalt            spc             ralt         rctl                       lft       down       rght 
+)
+
+
+
+#|
+https://forum.colemak.com/topic/2014-extend-extra-extreme/
+https://www.youtube.com/watch?v=2BIkk9FkxcU
+https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs
+(deflayer blank template
+  _    _     _     _     _     _     _     _     _     _     _     _     _    _    _   _
+  _    _     _     _     _     _     _     _     _     _     _     _     _             _
+  _    _     _     _     _     _     _     _     _     _     _     _     _             _
+  _    _     _     _     _     _     _     _     _     _     _     _                  _ 
+  _    _     _     _     _     _     _     _     _     _          _        _        _ 
+  _    _     _            _           _     _      _             _       _        
+)
+|#
+
+(deflayer Colemak-dh
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11   f12    prnt  pause    _
+  grv     q      w      f      p      b      _      _      j      l      u      y     _         \           _
+  esc     @aS    @rM    @sA    @tC    g      _      _      m      @nC    @eA    @iM   @oS     '             _
+  tab     z      x      c      d      v      _      _      k      h      ,      .      /                    _ 
+  lsft    _      _      @sNav  lsft   _      @dNum  rsft   bspc  .      /            rsft         up        _ 
+   _      _      _                 ret                 _          _                    lft       down       _ 
+)
+
+
+(deflayer Num
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11   f12    prnt  pause    _
+  grv     S-1    S-2    S-3    S-4    S-5    _      _      S-6    S-7    S-8    -     +       \             _
+  esc     1      2      3      4      5      _      _      6      7      8      9     0       '             _
+  tab     z      x      c      d      v      _      _      k      h      ,      .      /                    _ 
+  lsft    _      _      _      lsft   _      _      rsft   bspc   .      /           rsft         up        _ 
+   _      _      _                 ret                 _          _                    lft       down       _ 
+)
+
+  _     S--   -     +     [     ]     _     _     S-[   S-]   ;     S-;   S-\
+  _     _     _     _     _     _     _     _     _     _     _     _
+  _     _     _              _              _     _     _
+)
+
+(deflayer Nav 
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11   f12    prnt  pause    _
+  grv     q      home   up     end    pgup   _      _      j      l      u      y     _         \           _
+  esc     @aS    left   down   right  pgdn   _      _      m      @nC    @eA    @iM   @oS     '             _
+  tab     z      x      c      d      v      _      _      k      h      ,      .      /                    _ 
+  lsft    _      _      _      lsft   _      del    rsft   _      .      /           rsft         up        _ 
+   _      _      _                 ret                 _          _                    lft       down       _ 
+)
+
+(defalias
+  dNum (tap-hold 200 200 del (layer-toggle Num))
+  sNav (tap-hold 200 200 spc (layer-toggle Nav))
+)
+
+(defalias
+  aS (tap-hold 200 200 a lsft)
+  oS (tap-hold 200 200 o lsft)
+  rM (tap-hold 200 200 r lmet)
+  iM (tap-hold 200 200 i rmet)
+  nC (tap-hold 200 200 n lctl)
+  tC (tap-hold 200 200 t lctl)
+  sA (tap-hold 200 200 s lalt)
+  eA (tap-hold 200 200 e lalt)
+)
+
+(defalias
+  ml (macro home S-end)
+)
